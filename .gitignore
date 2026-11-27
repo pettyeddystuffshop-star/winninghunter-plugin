@@ -1,0 +1,11 @@
+# secrets
+.env
+.env.apply
+.mcp.json
+# runtime state & intermediates
+.wpc/
+work/
+logs/*.log
+__pycache__/
+*.pyc
+.claude/settings.local.json

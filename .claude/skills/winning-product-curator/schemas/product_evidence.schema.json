@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://winning-product-curator.local/schemas/product_evidence.schema.json",
+  "title": "Winning Product Curator - Product Evidence Bundle",
+  "description": "Raw evidence Claude gathers (Shopify, WinningHunter MCP+REST, DSers, CJ, AliExpress, AutoDS) for the deterministic 10-point validator. Missing data is allowed by the schema but FAILS the matching criterion.",
+  "type": "object",
+  "required": ["evidence_version", "collected_at", "products"],
+  "additionalProperties": false,
+  "properties": {
+    "evidence_version": {"const": "1.0"},
+    "collected_at": {"type": "string", "format": "date-time"},
+    "notes": {"type": "array", "items": {"type": "string"}},
+    "tier_requirements": {
+      "description": "Per collection handle: tier dimension -> values the assortment must cover (e.g. capacity: [2.2L, 3L, 4L]).",
+      "type": "object",
+      "additionalProperties": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}, "minItems": 1}}
+    },
+    "products": {"type": "array", "items": {"$ref": "#/$defs/product"}}
+  },
+  "$defs": {
+    "money": {"type": ["number", "null"], "minimum": 0},
+    "product": {
+      "type": "object",
+      "required": ["product_key", "role", "title", "collected_at", "collection_handles", "supplier_quotes", "variants"],
+      "additionalProperties": false,
+      "properties": {
+        "product_key": {"type": "string", "pattern": "^(shopify:gid://shopify/Product/[0-9]+|candidate:[a-z0-9][a-z0-9-]{2,80})$"},
+        "role": {"enum": ["ACTIVE", "REPLACEMENT_CANDIDATE", "GAP_FILL_CANDIDATE"]},
+        "title": {"type": "string", "minLength": 3},
+        "collected_at": {"type": "string", "format": "date-time"},
+        "shopify_product_id": {"type": ["string", "null"], "pattern": "^gid://shopify/Product/[0-9]+$"},
+        "shopify_handle": {"type": ["string", "null"]},
+        "collection_handles": {"type": "array", "items": {"type": "string"}},
+        "sub_collection_handles": {"type": "array", "items": {"type": "string"}},
+        "claims": {"type": "array", "items": {"type": "string"}, "description": "Marketing claims used in listing/ads; screened for policy-risk words."},
+        "tier": {"$ref": "#/$defs/tier"},
+        "current_supplier": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "platform": {"enum": ["aliexpress.us", "cjdropshipping.us", "dsers", "autods", "other", "unknown"]},
+            "listing_id": {"type": ["string", "null"]},
+            "listing_url": {"type": ["string", "null"]},
+            "source": {"type": "string"}
+          }
+        },
+        "supplier_quotes": {"type": "array", "items": {"$ref": "#/$defs/quote"}},
+        "competitors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["store", "price_usd", "source"],
+            "additionalProperties": true,
+            "properties": {
+              "store": {"type": "string"},
+              "price_usd": {"$ref": "#/$defs/money"},
+              "url": {"type": ["string", "null"]},
+              "source": {"type": "string"}
+            }
+          }
+        },
+        "market": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "units_sold_30d_sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["source", "listing_id", "units"],
+                "properties": {"source": {"type": "string"}, "listing_id": {"type": ["string", "integer"]}, "units": {"type": "integer", "minimum": 0}}
+              }
+            },
+            "monthly": {
+              "description": "Oldest -> newest 30-day buckets, aggregated across ALL suppliers/stores/listings of this product.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["period_start", "period_end", "units", "revenue_usd"],
+                "properties": {
+                  "period_start": {"type": "string", "format": "date"},
+                  "period_end": {"type": "string", "format": "date"},
+                  "units": {"type": "integer", "minimum": 0},
+                  "revenue_usd": {"type": "number", "minimum": 0},
+                  "sources": {"type": "array", "items": {"type": "string"}}
+                }
+              }
+            }
+          }
+        },
+        "rating": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "verified_avg": {"type": ["number", "null"], "minimum": 0, "maximum": 5},
+            "verified_count": {"type": "integer", "minimum": 0},
+            "source": {"type": "string"},
+            "negative_review_scan": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "sample_size": {"type": "integer", "minimum": 0},
+                "top_complaints": {"type": "array", "items": {"type": "string"}},
+                "fatal_defect_found": {"type": ["boolean", "null"]},
+                "fatal_defect_detail": {"type": ["string", "null"]},
+                "improvement_opportunity": {"type": ["string", "null"]}
+              }
+            }
+          }
+        },
+        "trend_90d": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "primary": {"$ref": "#/$defs/series"},
+            "corroborating": {"type": "array", "items": {"$ref": "#/$defs/series"}}
+          }
+        },
+        "problem_solver": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "audience": {"type": "string"},
+            "problem": {"type": "string"},
+            "recurrence": {"type": "string"},
+            "solution": {"type": "string"},
+            "statement": {"type": "string"},
+            "niche_fit": {"type": "string", "description": "Passionate niche / underserved segment lens."},
+            "review_gap_upgrade": {"type": "string", "description": "3% rule: which common complaint of competing products this version fixes."},
+            "claude_verdict": {"enum": ["PASS", "FAIL"]},
+            "rationale": {"type": "string"}
+          }
+        },
+        "visual_hook": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "hook_3s": {"type": "string"},
+            "demo_format": {"type": "string"},
+            "media_evidence": {"type": "array", "items": {"type": "string"}},
+            "ad_policy": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {"meta": {"type": "boolean"}, "tiktok": {"type": "boolean"}, "google": {"type": "boolean"}, "notes": {"type": "string"}}
+            },
+            "claude_verdict": {"enum": ["PASS", "FAIL"]},
+            "rationale": {"type": "string"}
+          }
+        },
+        "variants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["variant_key", "options"],
+            "additionalProperties": false,
+            "properties": {
+              "variant_key": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+              "shopify_variant_id": {"type": ["string", "null"]},
+              "options": {"type": "object", "additionalProperties": {"type": "string"}},
+              "sku": {"type": ["string", "null"]},
+              "supplier_order_count": {"type": ["number", "null"], "minimum": 0},
+              "review_count": {"type": ["number", "null"], "minimum": 0},
+              "sku_velocity_30d": {"type": ["number", "null"], "minimum": 0},
+              "in_stock": {"type": ["boolean", "null"]},
+              "current_price_usd": {"$ref": "#/$defs/money"}
+            }
+          }
+        },
+        "listing": {
+          "type": ["object", "null"],
+          "description": "Proposed Shopify listing for candidates (used by Phase B productSet).",
+          "additionalProperties": false,
+          "properties": {
+            "title": {"type": "string"},
+            "handle": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+            "description_html": {"type": "string"},
+            "product_type": {"type": "string"},
+            "vendor": {"type": "string"},
+            "tags": {"type": "array", "items": {"type": "string"}},
+            "image_urls": {"type": "array", "items": {"type": "string", "format": "uri"}},
+            "seo_title": {"type": "string", "maxLength": 70},
+            "seo_description": {"type": "string", "maxLength": 320}
+          }
+        },
+        "seo": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "long_tail_keywords": {"type": "array", "items": {"type": "string"}},
+            "proposed_title": {"type": "string"}
+          }
+        }
+      }
+    },
+    "tier": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dimensions": {"type": "object", "additionalProperties": {"type": "string"}, "description": "e.g. {capacity: 3L, household: multi-cat, shape: round, color: white}"},
+        "manufacturer": {"type": ["string", "null"]},
+        "price_tier": {"enum": ["budget", "mid", "premium", null]}
+      }
+    },
+    "series": {
+      "type": "object",
+      "required": ["source", "points"],
+      "additionalProperties": false,
+      "properties": {
+        "source": {"type": "string"},
+        "points": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["date", "value"],
+            "properties": {"date": {"type": "string", "format": "date"}, "value": {"type": ["number", "null"]}}
+          }
+        }
+      }
+    },
+    "quote": {
+      "type": "object",
+      "required": ["platform", "status", "checked_at", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "platform": {"enum": ["aliexpress.us", "cjdropshipping.us", "dsers", "autods"]},
+        "status": {"enum": ["QUOTED", "NOT_FOUND", "OUT_OF_STOCK", "ERROR"]},
+        "listing_id": {"type": ["string", "null"]},
+        "listing_url": {"type": ["string", "null"]},
+        "supplier_name": {"type": ["string", "null"]},
+        "variant_key": {"type": ["string", "null"]},
+        "supplier_variant_id": {"type": ["string", "null"]},
+        "supplier_variant_name": {"type": ["string", "null"]},
+        "unit_price_usd": {"$ref": "#/$defs/money"},
+        "shipping_cost_usd": {"$ref": "#/$defs/money"},
+        "shipping_method": {"type": ["string", "null"]},
+        "delivery_min_days": {"type": ["integer", "null"], "minimum": 0},
+        "delivery_max_days": {"type": ["integer", "null"], "minimum": 0},
+        "ship_from": {"type": ["string", "null"]},
+        "stock": {"type": ["integer", "null"]},
+        "in_stock": {"type": ["boolean", "null"]},
+        "checked_at": {"type": "string", "format": "date-time"},
+        "source": {"type": "string"},
+        "note": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

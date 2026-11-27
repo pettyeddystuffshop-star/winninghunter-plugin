@@ -1,0 +1,55 @@
+{
+  "proposals_version": "1.0",
+  "tier_requirements": {
+    "cat-water-fountains": {
+      "capacity": [
+        "2.2L",
+        "3L",
+        "4L"
+      ]
+    }
+  },
+  "replacements": [
+    {
+      "failing_product_key": "shopify:gid://shopify/Product/2002",
+      "replacement_product_key": "candidate:silent-3l-wireless-fountain",
+      "collection_handle": "cat-water-fountains",
+      "sub_collection_handles": [
+        "quiet-cat-water-fountains"
+      ],
+      "tier_note": "same 3L mid-price slot",
+      "rationale": "Upgraded silent pump fixes review complaints."
+    }
+  ],
+  "additions": [
+    {
+      "product_key": "candidate:stainless-4l-fountain",
+      "collection_handle": "cat-water-fountains",
+      "sub_collection_handles": [
+        "large-capacity-fountains"
+      ],
+      "tier_slot": "capacity 4L / premium / stainless"
+    }
+  ],
+  "new_sub_collections": [
+    {
+      "parent_collection_handle": "cat-water-fountains",
+      "handle": "quiet-cat-water-fountains",
+      "title": "Quiet Cat Water Fountains",
+      "seo_title": "Quiet Cat Water Fountains | Silent Pumps",
+      "meta_description": "Whisper-quiet filtered fountains for bedrooms and apartments.",
+      "description_html": "<p>Silent pumps for light sleepers.</p>",
+      "long_tail_keywords": [
+        "quiet cat water fountain for bedroom"
+      ],
+      "avg_margin_multiple": 3.4,
+      "existing_product_keys": [
+        "shopify:gid://shopify/Product/2001"
+      ],
+      "rationale": "Noise is the #1 complaint in fountain reviews; a quiet-pump sub-collection captures that intent."
+    }
+  ],
+  "unfilled_gap_notes": [
+    "cat-water-fountains needs 2 more sub-collections and more 2.2L options next week"
+  ]
+}

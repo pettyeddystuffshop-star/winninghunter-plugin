@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "ask": [
+      "Bash(python3 .claude/skills/winning-product-curator/scripts/apply_approved_plan.py review:*)",
+      "Bash(python3 .claude/skills/winning-product-curator/scripts/apply_approved_plan.py mark-linked:*)",
+      "Bash(WPC_MODE=apply python3 .claude/skills/winning-product-curator/scripts/apply_approved_plan.py:*)",
+      "mcp__dsers__apply_product_mapping",
+      "mcp__dsers__apply_ai_mapping",
+      "mcp__dsers__import_store_products_to_dsers",
+      "mcp__dsers__update_managed_store_product",
+      "mcp__autods__upload_products",
+      "mcp__autods__link_quoted_product",
+      "mcp__autods__set_store_quote_shipping_option"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.apply)",
+      "Write(./change-plans/**)",
+      "Edit(./change-plans/**)",
+      "mcp__shopify__graphql_mutation",
+      "mcp__Shopify__graphql_mutation",
+      "mcp__autods__delete_product",
+      "mcp__autods__publish_drafts_to_marketplace",
+      "mcp__dsers__publish_products_to_stores",
+      "mcp__dsers__place_orders_to_suppliers"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/skills/winning-product-curator/hooks/guard_hook.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
