@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://winning-product-curator.local/schemas/proposals.schema.json",
+  "title": "Winning Product Curator - Claude's merchandising proposals",
+  "description": "Written by Claude after scoring. generate_change_plan.py re-checks every reference against the scorecards and refuses non-10/10 products.",
+  "type": "object",
+  "required": ["proposals_version", "replacements", "additions", "new_sub_collections"],
+  "additionalProperties": false,
+  "properties": {
+    "proposals_version": {"const": "1.0"},
+    "tier_requirements": {
+      "type": "object",
+      "additionalProperties": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}, "minItems": 1}}
+    },
+    "replacements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["failing_product_key", "replacement_product_key", "collection_handle"],
+        "additionalProperties": false,
+        "properties": {
+          "failing_product_key": {"type": "string", "pattern": "^shopify:gid://shopify/Product/[0-9]+$"},
+          "replacement_product_key": {"type": "string", "pattern": "^candidate:"},
+          "collection_handle": {"type": "string"},
+          "sub_collection_handles": {"type": "array", "items": {"type": "string"}},
+          "tier_note": {"type": "string"},
+          "rationale": {"type": "string"}
+        }
+      }
+    },
+    "additions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["product_key", "collection_handle", "tier_slot"],
+        "additionalProperties": false,
+        "properties": {
+          "product_key": {"type": "string", "pattern": "^candidate:"},
+          "collection_handle": {"type": "string"},
+          "sub_collection_handles": {"type": "array", "items": {"type": "string"}},
+          "tier_slot": {"type": "string", "minLength": 3},
+          "rationale": {"type": "string"}
+        }
+      }
+    },
+    "new_sub_collections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["parent_collection_handle", "handle", "title", "seo_title", "meta_description", "description_html", "long_tail_keywords", "rationale"],
+        "additionalProperties": false,
+        "properties": {
+          "parent_collection_handle": {"type": "string"},
+          "handle": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "title": {"type": "string"},
+          "seo_title": {"type": "string", "maxLength": 70},
+          "meta_description": {"type": "string", "maxLength": 320},
+          "description_html": {"type": "string"},
+          "long_tail_keywords": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "avg_margin_multiple": {"type": ["number", "null"]},
+          "existing_product_keys": {"type": "array", "items": {"type": "string"}},
+          "rationale": {"type": "string", "minLength": 20}
+        }
+      }
+    },
+    "unfilled_gap_notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

@@ -1,0 +1,860 @@
+{
+  "catalog_version": "1.0",
+  "generated_at": "2026-11-27T11:03:45Z",
+  "store_date": "2026-11-27",
+  "shop": {
+    "name": "Purrfect Home Co",
+    "myshopifyDomain": "purrfect-home.myshopify.com",
+    "ianaTimezone": "America/New_York",
+    "currencyCode": "USD"
+  },
+  "read_only": true,
+  "products": [
+    {
+      "id": "gid://shopify/Product/1001",
+      "title": "Self-Cleaning Litter Box #1",
+      "handle": "litter-box-1",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1002",
+      "title": "Self-Cleaning Litter Box #2",
+      "handle": "litter-box-2",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1003",
+      "title": "Self-Cleaning Litter Box #3",
+      "handle": "litter-box-3",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1004",
+      "title": "Self-Cleaning Litter Box #4",
+      "handle": "litter-box-4",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1005",
+      "title": "Self-Cleaning Litter Box #5",
+      "handle": "litter-box-5",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1006",
+      "title": "Self-Cleaning Litter Box #6",
+      "handle": "litter-box-6",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1007",
+      "title": "Self-Cleaning Litter Box #7",
+      "handle": "litter-box-7",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1008",
+      "title": "Self-Cleaning Litter Box #8",
+      "handle": "litter-box-8",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1009",
+      "title": "Self-Cleaning Litter Box #9",
+      "handle": "litter-box-9",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1010",
+      "title": "Self-Cleaning Litter Box #10",
+      "handle": "litter-box-10",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1011",
+      "title": "Self-Cleaning Litter Box #11",
+      "handle": "litter-box-11",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1012",
+      "title": "Self-Cleaning Litter Box #12",
+      "handle": "litter-box-12",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1013",
+      "title": "Self-Cleaning Litter Box #13",
+      "handle": "litter-box-13",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1014",
+      "title": "Self-Cleaning Litter Box #14",
+      "handle": "litter-box-14",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1015",
+      "title": "Self-Cleaning Litter Box #15",
+      "handle": "litter-box-15",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1016",
+      "title": "Self-Cleaning Litter Box #16",
+      "handle": "litter-box-16",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1017",
+      "title": "Self-Cleaning Litter Box #17",
+      "handle": "litter-box-17",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1018",
+      "title": "Self-Cleaning Litter Box #18",
+      "handle": "litter-box-18",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1019",
+      "title": "Self-Cleaning Litter Box #19",
+      "handle": "litter-box-19",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1020",
+      "title": "Self-Cleaning Litter Box #20",
+      "handle": "litter-box-20",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1021",
+      "title": "Self-Cleaning Litter Box #21",
+      "handle": "litter-box-21",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/1022",
+      "title": "Self-Cleaning Litter Box #22",
+      "handle": "litter-box-22",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 10
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2001",
+      "title": "Cat Water Fountain #1",
+      "handle": "fountain-1",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2002",
+      "title": "Cat Water Fountain #2",
+      "handle": "fountain-2",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2003",
+      "title": "Cat Water Fountain #3",
+      "handle": "fountain-3",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2004",
+      "title": "Cat Water Fountain #4",
+      "handle": "fountain-4",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2005",
+      "title": "Cat Water Fountain #5",
+      "handle": "fountain-5",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2006",
+      "title": "Cat Water Fountain #6",
+      "handle": "fountain-6",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2007",
+      "title": "Cat Water Fountain #7",
+      "handle": "fountain-7",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2008",
+      "title": "Cat Water Fountain #8",
+      "handle": "fountain-8",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2009",
+      "title": "Cat Water Fountain #9",
+      "handle": "fountain-9",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2010",
+      "title": "Cat Water Fountain #10",
+      "handle": "fountain-10",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2011",
+      "title": "Cat Water Fountain #11",
+      "handle": "fountain-11",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2012",
+      "title": "Cat Water Fountain #12",
+      "handle": "fountain-12",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2013",
+      "title": "Cat Water Fountain #13",
+      "handle": "fountain-13",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2014",
+      "title": "Cat Water Fountain #14",
+      "handle": "fountain-14",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2015",
+      "title": "Cat Water Fountain #15",
+      "handle": "fountain-15",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2016",
+      "title": "Cat Water Fountain #16",
+      "handle": "fountain-16",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2017",
+      "title": "Cat Water Fountain #17",
+      "handle": "fountain-17",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2018",
+      "title": "Cat Water Fountain #18",
+      "handle": "fountain-18",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2019",
+      "title": "Cat Water Fountain #19",
+      "handle": "fountain-19",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    },
+    {
+      "id": "gid://shopify/Product/2020",
+      "title": "Cat Water Fountain #20",
+      "handle": "fountain-20",
+      "status": "ACTIVE",
+      "variants": [],
+      "collections": [],
+      "sales": {
+        "units_30d": 5
+      }
+    }
+  ],
+  "collections": [
+    {
+      "id": "gid://shopify/Collection/1",
+      "handle": "automatic-litter-boxes",
+      "title": "Automatic Litter Boxes",
+      "active_product_ids": [
+        "gid://shopify/Product/1001",
+        "gid://shopify/Product/1002",
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020",
+        "gid://shopify/Product/1021",
+        "gid://shopify/Product/1022"
+      ],
+      "product_ids": [
+        "gid://shopify/Product/1001",
+        "gid://shopify/Product/1002",
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020",
+        "gid://shopify/Product/1021",
+        "gid://shopify/Product/1022"
+      ],
+      "metafields": [],
+      "ruleSet": null
+    },
+    {
+      "id": "gid://shopify/Collection/11",
+      "handle": "multi-cat-litter-boxes",
+      "title": "Multi-Cat Litter Boxes",
+      "active_product_ids": [
+        "gid://shopify/Product/1001",
+        "gid://shopify/Product/1002",
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020"
+      ],
+      "product_ids": [
+        "gid://shopify/Product/1001",
+        "gid://shopify/Product/1002",
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020"
+      ],
+      "metafields": [],
+      "ruleSet": null
+    },
+    {
+      "id": "gid://shopify/Collection/12",
+      "handle": "small-space-litter-boxes",
+      "title": "Small-Space Litter Boxes",
+      "active_product_ids": [
+        "gid://shopify/Product/1001",
+        "gid://shopify/Product/1002",
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020"
+      ],
+      "product_ids": [
+        "gid://shopify/Product/1001",
+        "gid://shopify/Product/1002",
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020"
+      ],
+      "metafields": [],
+      "ruleSet": null
+    },
+    {
+      "id": "gid://shopify/Collection/13",
+      "handle": "quiet-litter-boxes",
+      "title": "Quiet Litter Boxes",
+      "active_product_ids": [
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020",
+        "gid://shopify/Product/1021",
+        "gid://shopify/Product/1022"
+      ],
+      "product_ids": [
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020",
+        "gid://shopify/Product/1021",
+        "gid://shopify/Product/1022"
+      ],
+      "metafields": [],
+      "ruleSet": null
+    },
+    {
+      "id": "gid://shopify/Collection/14",
+      "handle": "odor-control-litter-boxes",
+      "title": "Odor-Control Litter Boxes",
+      "active_product_ids": [
+        "gid://shopify/Product/1002",
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020",
+        "gid://shopify/Product/1021"
+      ],
+      "product_ids": [
+        "gid://shopify/Product/1002",
+        "gid://shopify/Product/1003",
+        "gid://shopify/Product/1004",
+        "gid://shopify/Product/1005",
+        "gid://shopify/Product/1006",
+        "gid://shopify/Product/1007",
+        "gid://shopify/Product/1008",
+        "gid://shopify/Product/1009",
+        "gid://shopify/Product/1010",
+        "gid://shopify/Product/1011",
+        "gid://shopify/Product/1012",
+        "gid://shopify/Product/1013",
+        "gid://shopify/Product/1014",
+        "gid://shopify/Product/1015",
+        "gid://shopify/Product/1016",
+        "gid://shopify/Product/1017",
+        "gid://shopify/Product/1018",
+        "gid://shopify/Product/1019",
+        "gid://shopify/Product/1020",
+        "gid://shopify/Product/1021"
+      ],
+      "metafields": [],
+      "ruleSet": null
+    },
+    {
+      "id": "gid://shopify/Collection/2",
+      "handle": "cat-water-fountains",
+      "title": "Cat Water Fountains",
+      "active_product_ids": [
+        "gid://shopify/Product/2001",
+        "gid://shopify/Product/2002",
+        "gid://shopify/Product/2003",
+        "gid://shopify/Product/2004",
+        "gid://shopify/Product/2005",
+        "gid://shopify/Product/2006",
+        "gid://shopify/Product/2007",
+        "gid://shopify/Product/2008",
+        "gid://shopify/Product/2009",
+        "gid://shopify/Product/2010",
+        "gid://shopify/Product/2011",
+        "gid://shopify/Product/2012",
+        "gid://shopify/Product/2013",
+        "gid://shopify/Product/2014",
+        "gid://shopify/Product/2015",
+        "gid://shopify/Product/2016",
+        "gid://shopify/Product/2017",
+        "gid://shopify/Product/2018",
+        "gid://shopify/Product/2019",
+        "gid://shopify/Product/2020"
+      ],
+      "product_ids": [
+        "gid://shopify/Product/2001",
+        "gid://shopify/Product/2002",
+        "gid://shopify/Product/2003",
+        "gid://shopify/Product/2004",
+        "gid://shopify/Product/2005",
+        "gid://shopify/Product/2006",
+        "gid://shopify/Product/2007",
+        "gid://shopify/Product/2008",
+        "gid://shopify/Product/2009",
+        "gid://shopify/Product/2010",
+        "gid://shopify/Product/2011",
+        "gid://shopify/Product/2012",
+        "gid://shopify/Product/2013",
+        "gid://shopify/Product/2014",
+        "gid://shopify/Product/2015",
+        "gid://shopify/Product/2016",
+        "gid://shopify/Product/2017",
+        "gid://shopify/Product/2018",
+        "gid://shopify/Product/2019",
+        "gid://shopify/Product/2020"
+      ],
+      "metafields": [],
+      "ruleSet": null
+    },
+    {
+      "id": "gid://shopify/Collection/21",
+      "handle": "large-capacity-fountains",
+      "title": "Large-Capacity Fountains (4L+)",
+      "active_product_ids": [
+        "gid://shopify/Product/2001",
+        "gid://shopify/Product/2002",
+        "gid://shopify/Product/2003",
+        "gid://shopify/Product/2004",
+        "gid://shopify/Product/2005"
+      ],
+      "product_ids": [
+        "gid://shopify/Product/2001",
+        "gid://shopify/Product/2002",
+        "gid://shopify/Product/2003",
+        "gid://shopify/Product/2004",
+        "gid://shopify/Product/2005"
+      ],
+      "metafields": [],
+      "ruleSet": null
+    }
+  ],
+  "menus": [],
+  "hierarchy": [
+    {
+      "handle": "automatic-litter-boxes",
+      "collection_id": "gid://shopify/Collection/1",
+      "sub_collections": [
+        {
+          "handle": "multi-cat-litter-boxes",
+          "collection_id": "gid://shopify/Collection/11",
+          "link_sources": [
+            "menu:main-menu"
+          ]
+        },
+        {
+          "handle": "small-space-litter-boxes",
+          "collection_id": "gid://shopify/Collection/12",
+          "link_sources": [
+            "menu:main-menu"
+          ]
+        },
+        {
+          "handle": "quiet-litter-boxes",
+          "collection_id": "gid://shopify/Collection/13",
+          "link_sources": [
+            "menu:main-menu"
+          ]
+        },
+        {
+          "handle": "odor-control-litter-boxes",
+          "collection_id": "gid://shopify/Collection/14",
+          "link_sources": [
+            "menu:main-menu"
+          ]
+        }
+      ]
+    },
+    {
+      "handle": "cat-water-fountains",
+      "collection_id": "gid://shopify/Collection/2",
+      "sub_collections": [
+        {
+          "handle": "large-capacity-fountains",
+          "collection_id": "gid://shopify/Collection/21",
+          "link_sources": [
+            "metafield"
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "winninghunter": {
+      "type": "http",
+      "url": "https://app.winninghunter.com/mcp",
+      "headers": {
+        "X-API-Key": "${WH_API_KEY}"
+      }
+    },
+    "dsers": {
+      "type": "http",
+      "url": "${DSERS_MCP_URL}"
+    },
+    "autods": {
+      "type": "http",
+      "url": "${AUTODS_MCP_URL}"
+    },
+    "shopify-dev": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@shopify/dev-mcp@latest"]
+    }
+  }
+}

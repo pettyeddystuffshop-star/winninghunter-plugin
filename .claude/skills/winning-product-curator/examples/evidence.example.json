@@ -1,0 +1,1504 @@
+{
+  "evidence_version": "1.0",
+  "collected_at": "2026-11-27T11:03:45Z",
+  "tier_requirements": {
+    "cat-water-fountains": {
+      "capacity": [
+        "2.2L",
+        "3L",
+        "4L"
+      ]
+    }
+  },
+  "products": [
+    {
+      "product_key": "shopify:gid://shopify/Product/2001",
+      "role": "ACTIVE",
+      "title": "Cat Water Fountain #1",
+      "collected_at": "2026-11-27T11:03:45Z",
+      "shopify_product_id": "gid://shopify/Product/2001",
+      "shopify_handle": "//shopify/Product/2001",
+      "collection_handles": [
+        "cat-water-fountains"
+      ],
+      "sub_collection_handles": [],
+      "claims": [
+        "Keeps water fresh and filtered for cats"
+      ],
+      "tier": {
+        "dimensions": {
+          "capacity": "3L"
+        },
+        "manufacturer": "Aquapaw",
+        "price_tier": "mid"
+      },
+      "current_supplier": {
+        "platform": "cjdropshipping.us",
+        "listing_id": "CJ-77",
+        "source": "dsers mapping"
+      },
+      "supplier_quotes": [
+        {
+          "platform": "aliexpress.us",
+          "status": "QUOTED",
+          "listing_id": "3256801",
+          "listing_url": "https://example.invalid/aliexpress.us/3256801",
+          "supplier_name": "aliexpress.us seller",
+          "variant_key": null,
+          "unit_price_usd": 9.1,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 4,
+          "delivery_max_days": 8,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:aliexpress.us"
+        },
+        {
+          "platform": "cjdropshipping.us",
+          "status": "QUOTED",
+          "listing_id": "CJ-77",
+          "listing_url": "https://example.invalid/cjdropshipping.us/CJ-77",
+          "supplier_name": "cjdropshipping.us seller",
+          "variant_key": null,
+          "unit_price_usd": 9.6,
+          "shipping_cost_usd": 1.5,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 2,
+          "delivery_max_days": 6,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:cjdropshipping.us"
+        },
+        {
+          "platform": "dsers",
+          "status": "QUOTED",
+          "listing_id": "3256801-ds",
+          "listing_url": "https://example.invalid/dsers/3256801-ds",
+          "supplier_name": "dsers seller",
+          "variant_key": null,
+          "unit_price_usd": 9.1,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 5,
+          "delivery_max_days": 9,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:dsers"
+        },
+        {
+          "platform": "autods",
+          "status": "QUOTED",
+          "listing_id": "ADS-1",
+          "listing_url": "https://example.invalid/autods/ADS-1",
+          "supplier_name": "autods seller",
+          "variant_key": null,
+          "unit_price_usd": 12.0,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 3,
+          "delivery_max_days": 7,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:autods"
+        }
+      ],
+      "competitors": [
+        {
+          "store": "aquacat.com",
+          "price_usd": 32.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "meowflow.com",
+          "price_usd": 29.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "petsip.co",
+          "price_usd": 34.95,
+          "source": "winninghunter:adlibrary"
+        }
+      ],
+      "market": {
+        "units_sold_30d_sources": [
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290001",
+            "units": 1450
+          },
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290002",
+            "units": 380
+          }
+        ],
+        "monthly": [
+          {
+            "period_start": "2026-07-30",
+            "period_end": "2026-08-29",
+            "units": 3100,
+            "revenue_usd": 86000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-08-29",
+            "period_end": "2026-09-28",
+            "units": 3500,
+            "revenue_usd": 97000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-09-28",
+            "period_end": "2026-10-28",
+            "units": 3900,
+            "revenue_usd": 108000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-10-28",
+            "period_end": "2026-11-27",
+            "units": 4300,
+            "revenue_usd": 121000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          }
+        ]
+      },
+      "rating": {
+        "verified_avg": 4.7,
+        "verified_count": 1840,
+        "source": "aliexpress.us verified purchases",
+        "negative_review_scan": {
+          "sample_size": 60,
+          "top_complaints": [
+            "pump noise after 3 months",
+            "filter cost"
+          ],
+          "fatal_defect_found": false,
+          "fatal_defect_detail": null,
+          "improvement_opportunity": "Choose wireless-pump version that fixes noise complaints"
+        }
+      },
+      "trend_90d": {
+        "primary": {
+          "source": "winninghunter:meta-active-ads",
+          "points": [
+            {
+              "date": "2026-08-29",
+              "value": 40
+            },
+            {
+              "date": "2026-09-28",
+              "value": 52
+            },
+            {
+              "date": "2026-10-28",
+              "value": 61
+            },
+            {
+              "date": "2026-11-13",
+              "value": 66
+            },
+            {
+              "date": "2026-11-20",
+              "value": 70
+            },
+            {
+              "date": "2026-11-27",
+              "value": 72
+            }
+          ]
+        },
+        "corroborating": [
+          {
+            "source": "google-trends",
+            "points": [
+              {
+                "date": "2026-08-29",
+                "value": 70
+              },
+              {
+                "date": "2026-09-28",
+                "value": 74
+              },
+              {
+                "date": "2026-10-28",
+                "value": 78
+              },
+              {
+                "date": "2026-11-27",
+                "value": 80
+              }
+            ]
+          }
+        ]
+      },
+      "problem_solver": {
+        "audience": "cat owners whose cats drink too little water",
+        "problem": "cats avoid stale bowl water and risk urinary issues",
+        "recurrence": "daily",
+        "solution": "circulating filtered water that cats prefer",
+        "statement": "For cat owners whose cats drink too little water, this filtered fountain keeps water moving so cats drink more every day.",
+        "niche_fit": "multi-pet and small-apartment households",
+        "review_gap_upgrade": "silent wireless pump fixes the #1 complaint",
+        "claude_verdict": "PASS",
+        "rationale": "Hydration is a daily, vet-recognised problem; fountains are a proven category with repeat demand."
+      },
+      "visual_hook": {
+        "hook_3s": "Cat ignores a stale bowl, then runs to the fountain and drinks",
+        "demo_format": "before_after",
+        "media_evidence": [
+          "https://example.invalid/ad/123"
+        ],
+        "ad_policy": {
+          "meta": true,
+          "tiktok": true,
+          "google": true,
+          "notes": "no health claims"
+        },
+        "claude_verdict": "PASS",
+        "rationale": "The before/after of a cat refusing a bowl then drinking is instantly readable without sound."
+      },
+      "variants": [
+        {
+          "variant_key": "white-3l",
+          "options": {
+            "Color": "White",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 5200,
+          "review_count": 900,
+          "sku_velocity_30d": 700,
+          "in_stock": true,
+          "current_price_usd": 31.99,
+          "shopify_variant_id": "gid://shopify/ProductVariant/50010"
+        },
+        {
+          "variant_key": "grey-3l",
+          "options": {
+            "Color": "Grey",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 2100,
+          "review_count": 300,
+          "sku_velocity_30d": 260,
+          "in_stock": true,
+          "current_price_usd": 31.99,
+          "shopify_variant_id": "gid://shopify/ProductVariant/50011"
+        },
+        {
+          "variant_key": "pink-3l",
+          "options": {
+            "Color": "Pink",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 120,
+          "review_count": 10,
+          "sku_velocity_30d": 8,
+          "in_stock": true,
+          "current_price_usd": 31.99,
+          "shopify_variant_id": "gid://shopify/ProductVariant/50012"
+        }
+      ],
+      "listing": null,
+      "seo": {
+        "long_tail_keywords": [
+          "quiet cat water fountain for multiple cats"
+        ],
+        "proposed_title": "Cat Water Fountain #1"
+      }
+    },
+    {
+      "product_key": "shopify:gid://shopify/Product/2002",
+      "role": "ACTIVE",
+      "title": "Cat Water Fountain #2",
+      "collected_at": "2026-11-27T11:03:45Z",
+      "shopify_product_id": "gid://shopify/Product/2002",
+      "shopify_handle": "//shopify/Product/2002",
+      "collection_handles": [
+        "cat-water-fountains"
+      ],
+      "sub_collection_handles": [],
+      "claims": [
+        "Keeps water fresh and filtered for cats"
+      ],
+      "tier": {
+        "dimensions": {
+          "capacity": "3L"
+        },
+        "manufacturer": "Aquapaw",
+        "price_tier": "mid"
+      },
+      "current_supplier": null,
+      "supplier_quotes": [
+        {
+          "platform": "aliexpress.us",
+          "status": "QUOTED",
+          "listing_id": "3256801",
+          "listing_url": "https://example.invalid/aliexpress.us/3256801",
+          "supplier_name": "aliexpress.us seller",
+          "variant_key": null,
+          "unit_price_usd": 9.1,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 4,
+          "delivery_max_days": 8,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:aliexpress.us"
+        },
+        {
+          "platform": "cjdropshipping.us",
+          "status": "QUOTED",
+          "listing_id": "CJ-77",
+          "listing_url": "https://example.invalid/cjdropshipping.us/CJ-77",
+          "supplier_name": "cjdropshipping.us seller",
+          "variant_key": null,
+          "unit_price_usd": 9.6,
+          "shipping_cost_usd": 1.5,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 2,
+          "delivery_max_days": 6,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:cjdropshipping.us"
+        },
+        {
+          "platform": "dsers",
+          "status": "QUOTED",
+          "listing_id": "3256801-ds",
+          "listing_url": "https://example.invalid/dsers/3256801-ds",
+          "supplier_name": "dsers seller",
+          "variant_key": null,
+          "unit_price_usd": 9.1,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 5,
+          "delivery_max_days": 9,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:dsers"
+        },
+        {
+          "platform": "autods",
+          "status": "QUOTED",
+          "listing_id": "ADS-1",
+          "listing_url": "https://example.invalid/autods/ADS-1",
+          "supplier_name": "autods seller",
+          "variant_key": null,
+          "unit_price_usd": 12.0,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 3,
+          "delivery_max_days": 7,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:autods"
+        }
+      ],
+      "competitors": [
+        {
+          "store": "aquacat.com",
+          "price_usd": 32.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "meowflow.com",
+          "price_usd": 29.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "petsip.co",
+          "price_usd": 34.95,
+          "source": "winninghunter:adlibrary"
+        }
+      ],
+      "market": {
+        "units_sold_30d_sources": [
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290001",
+            "units": 1450
+          },
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290002",
+            "units": 380
+          }
+        ],
+        "monthly": [
+          {
+            "period_start": "2026-07-30",
+            "period_end": "2026-08-29",
+            "units": 3100,
+            "revenue_usd": 86000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-08-29",
+            "period_end": "2026-09-28",
+            "units": 3500,
+            "revenue_usd": 97000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-09-28",
+            "period_end": "2026-10-28",
+            "units": 3900,
+            "revenue_usd": 108000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-10-28",
+            "period_end": "2026-11-27",
+            "units": 4300,
+            "revenue_usd": 121000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          }
+        ]
+      },
+      "rating": {
+        "verified_avg": 4.1,
+        "verified_count": 1840,
+        "source": "aliexpress.us verified purchases",
+        "negative_review_scan": {
+          "sample_size": 60,
+          "top_complaints": [
+            "pump noise after 3 months",
+            "filter cost"
+          ],
+          "fatal_defect_found": false,
+          "fatal_defect_detail": null,
+          "improvement_opportunity": "Choose wireless-pump version that fixes noise complaints"
+        }
+      },
+      "trend_90d": {
+        "primary": {
+          "source": "winninghunter:meta-active-ads",
+          "points": [
+            {
+              "date": "2026-08-29",
+              "value": 90
+            },
+            {
+              "date": "2026-09-28",
+              "value": 70
+            },
+            {
+              "date": "2026-10-28",
+              "value": 40
+            },
+            {
+              "date": "2026-11-20",
+              "value": 30
+            },
+            {
+              "date": "2026-11-27",
+              "value": 25
+            }
+          ]
+        },
+        "corroborating": [
+          {
+            "source": "google-trends",
+            "points": [
+              {
+                "date": "2026-08-29",
+                "value": 70
+              },
+              {
+                "date": "2026-09-28",
+                "value": 74
+              },
+              {
+                "date": "2026-10-28",
+                "value": 78
+              },
+              {
+                "date": "2026-11-27",
+                "value": 80
+              }
+            ]
+          }
+        ]
+      },
+      "problem_solver": {
+        "audience": "cat owners whose cats drink too little water",
+        "problem": "cats avoid stale bowl water and risk urinary issues",
+        "recurrence": "daily",
+        "solution": "circulating filtered water that cats prefer",
+        "statement": "For cat owners whose cats drink too little water, this filtered fountain keeps water moving so cats drink more every day.",
+        "niche_fit": "multi-pet and small-apartment households",
+        "review_gap_upgrade": "silent wireless pump fixes the #1 complaint",
+        "claude_verdict": "PASS",
+        "rationale": "Hydration is a daily, vet-recognised problem; fountains are a proven category with repeat demand."
+      },
+      "visual_hook": {
+        "hook_3s": "Cat ignores a stale bowl, then runs to the fountain and drinks",
+        "demo_format": "before_after",
+        "media_evidence": [
+          "https://example.invalid/ad/123"
+        ],
+        "ad_policy": {
+          "meta": true,
+          "tiktok": true,
+          "google": true,
+          "notes": "no health claims"
+        },
+        "claude_verdict": "PASS",
+        "rationale": "The before/after of a cat refusing a bowl then drinking is instantly readable without sound."
+      },
+      "variants": [
+        {
+          "variant_key": "white-3l",
+          "options": {
+            "Color": "White",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 5200,
+          "review_count": 900,
+          "sku_velocity_30d": 700,
+          "in_stock": true,
+          "current_price_usd": 24.99,
+          "shopify_variant_id": "gid://shopify/ProductVariant/50020"
+        },
+        {
+          "variant_key": "grey-3l",
+          "options": {
+            "Color": "Grey",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 2100,
+          "review_count": 300,
+          "sku_velocity_30d": 260,
+          "in_stock": true,
+          "current_price_usd": 24.99,
+          "shopify_variant_id": "gid://shopify/ProductVariant/50021"
+        },
+        {
+          "variant_key": "pink-3l",
+          "options": {
+            "Color": "Pink",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 120,
+          "review_count": 10,
+          "sku_velocity_30d": 8,
+          "in_stock": true,
+          "current_price_usd": 24.99,
+          "shopify_variant_id": "gid://shopify/ProductVariant/50022"
+        }
+      ],
+      "listing": null,
+      "seo": {
+        "long_tail_keywords": [
+          "quiet cat water fountain for multiple cats"
+        ],
+        "proposed_title": "Cat Water Fountain #2"
+      }
+    },
+    {
+      "product_key": "candidate:silent-3l-wireless-fountain",
+      "role": "REPLACEMENT_CANDIDATE",
+      "title": "Silent 3L Wireless Cat Water Fountain",
+      "collected_at": "2026-11-27T11:03:45Z",
+      "shopify_product_id": null,
+      "shopify_handle": null,
+      "collection_handles": [
+        "cat-water-fountains"
+      ],
+      "sub_collection_handles": [],
+      "claims": [
+        "Keeps water fresh and filtered for cats"
+      ],
+      "tier": {
+        "dimensions": {
+          "capacity": "3L"
+        },
+        "manufacturer": "Aquapaw",
+        "price_tier": "mid"
+      },
+      "current_supplier": null,
+      "supplier_quotes": [
+        {
+          "platform": "aliexpress.us",
+          "status": "QUOTED",
+          "listing_id": "3256801",
+          "listing_url": "https://example.invalid/aliexpress.us/3256801",
+          "supplier_name": "aliexpress.us seller",
+          "variant_key": null,
+          "unit_price_usd": 9.1,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 4,
+          "delivery_max_days": 8,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:aliexpress.us"
+        },
+        {
+          "platform": "cjdropshipping.us",
+          "status": "QUOTED",
+          "listing_id": "CJ-77",
+          "listing_url": "https://example.invalid/cjdropshipping.us/CJ-77",
+          "supplier_name": "cjdropshipping.us seller",
+          "variant_key": null,
+          "unit_price_usd": 9.6,
+          "shipping_cost_usd": 1.5,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 2,
+          "delivery_max_days": 6,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:cjdropshipping.us"
+        },
+        {
+          "platform": "dsers",
+          "status": "QUOTED",
+          "listing_id": "3256801-ds",
+          "listing_url": "https://example.invalid/dsers/3256801-ds",
+          "supplier_name": "dsers seller",
+          "variant_key": null,
+          "unit_price_usd": 9.1,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 5,
+          "delivery_max_days": 9,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:dsers"
+        },
+        {
+          "platform": "autods",
+          "status": "QUOTED",
+          "listing_id": "ADS-1",
+          "listing_url": "https://example.invalid/autods/ADS-1",
+          "supplier_name": "autods seller",
+          "variant_key": null,
+          "unit_price_usd": 12.0,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 3,
+          "delivery_max_days": 7,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:autods"
+        }
+      ],
+      "competitors": [
+        {
+          "store": "aquacat.com",
+          "price_usd": 32.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "meowflow.com",
+          "price_usd": 29.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "petsip.co",
+          "price_usd": 34.95,
+          "source": "winninghunter:adlibrary"
+        }
+      ],
+      "market": {
+        "units_sold_30d_sources": [
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290001",
+            "units": 1450
+          },
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290002",
+            "units": 380
+          }
+        ],
+        "monthly": [
+          {
+            "period_start": "2026-07-30",
+            "period_end": "2026-08-29",
+            "units": 3100,
+            "revenue_usd": 86000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-08-29",
+            "period_end": "2026-09-28",
+            "units": 3500,
+            "revenue_usd": 97000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-09-28",
+            "period_end": "2026-10-28",
+            "units": 3900,
+            "revenue_usd": 108000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-10-28",
+            "period_end": "2026-11-27",
+            "units": 4300,
+            "revenue_usd": 121000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          }
+        ]
+      },
+      "rating": {
+        "verified_avg": 4.7,
+        "verified_count": 1840,
+        "source": "aliexpress.us verified purchases",
+        "negative_review_scan": {
+          "sample_size": 60,
+          "top_complaints": [
+            "pump noise after 3 months",
+            "filter cost"
+          ],
+          "fatal_defect_found": false,
+          "fatal_defect_detail": null,
+          "improvement_opportunity": "Choose wireless-pump version that fixes noise complaints"
+        }
+      },
+      "trend_90d": {
+        "primary": {
+          "source": "winninghunter:meta-active-ads",
+          "points": [
+            {
+              "date": "2026-08-29",
+              "value": 40
+            },
+            {
+              "date": "2026-09-28",
+              "value": 52
+            },
+            {
+              "date": "2026-10-28",
+              "value": 61
+            },
+            {
+              "date": "2026-11-13",
+              "value": 66
+            },
+            {
+              "date": "2026-11-20",
+              "value": 70
+            },
+            {
+              "date": "2026-11-27",
+              "value": 72
+            }
+          ]
+        },
+        "corroborating": [
+          {
+            "source": "google-trends",
+            "points": [
+              {
+                "date": "2026-08-29",
+                "value": 70
+              },
+              {
+                "date": "2026-09-28",
+                "value": 74
+              },
+              {
+                "date": "2026-10-28",
+                "value": 78
+              },
+              {
+                "date": "2026-11-27",
+                "value": 80
+              }
+            ]
+          }
+        ]
+      },
+      "problem_solver": {
+        "audience": "cat owners whose cats drink too little water",
+        "problem": "cats avoid stale bowl water and risk urinary issues",
+        "recurrence": "daily",
+        "solution": "circulating filtered water that cats prefer",
+        "statement": "For cat owners whose cats drink too little water, this filtered fountain keeps water moving so cats drink more every day.",
+        "niche_fit": "multi-pet and small-apartment households",
+        "review_gap_upgrade": "silent wireless pump fixes the #1 complaint",
+        "claude_verdict": "PASS",
+        "rationale": "Hydration is a daily, vet-recognised problem; fountains are a proven category with repeat demand."
+      },
+      "visual_hook": {
+        "hook_3s": "Cat ignores a stale bowl, then runs to the fountain and drinks",
+        "demo_format": "before_after",
+        "media_evidence": [
+          "https://example.invalid/ad/123"
+        ],
+        "ad_policy": {
+          "meta": true,
+          "tiktok": true,
+          "google": true,
+          "notes": "no health claims"
+        },
+        "claude_verdict": "PASS",
+        "rationale": "The before/after of a cat refusing a bowl then drinking is instantly readable without sound."
+      },
+      "variants": [
+        {
+          "variant_key": "white-3l",
+          "options": {
+            "Color": "White",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 5200,
+          "review_count": 900,
+          "sku_velocity_30d": 700,
+          "in_stock": true,
+          "current_price_usd": null
+        },
+        {
+          "variant_key": "grey-3l",
+          "options": {
+            "Color": "Grey",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 2100,
+          "review_count": 300,
+          "sku_velocity_30d": 260,
+          "in_stock": true,
+          "current_price_usd": null
+        },
+        {
+          "variant_key": "pink-3l",
+          "options": {
+            "Color": "Pink",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 120,
+          "review_count": 10,
+          "sku_velocity_30d": 8,
+          "in_stock": true,
+          "current_price_usd": null
+        }
+      ],
+      "listing": {
+        "title": "Silent 3L Wireless Cat Water Fountain",
+        "handle": "silent-3l-wireless-cat-water-fountain",
+        "description_html": "<p>Ultra-quiet wireless pump keeps water flowing so cats drink more.</p>",
+        "product_type": "Cat Water Fountain",
+        "vendor": "Purrfect Home",
+        "tags": [
+          "fountain",
+          "3l"
+        ],
+        "image_urls": [
+          "https://example.invalid/img/fountain.jpg"
+        ],
+        "seo_title": "Silent 3L Wireless Cat Water Fountain",
+        "seo_description": "Quiet filtered water fountain for cats and multi-cat homes."
+      },
+      "seo": {
+        "long_tail_keywords": [
+          "quiet cat water fountain for multiple cats"
+        ],
+        "proposed_title": "Silent 3L Wireless Cat Water Fountain"
+      }
+    },
+    {
+      "product_key": "candidate:stainless-4l-fountain",
+      "role": "GAP_FILL_CANDIDATE",
+      "title": "Stainless 4L Cat Water Fountain",
+      "collected_at": "2026-11-27T11:03:45Z",
+      "shopify_product_id": null,
+      "shopify_handle": null,
+      "collection_handles": [
+        "cat-water-fountains"
+      ],
+      "sub_collection_handles": [
+        "large-capacity-fountains"
+      ],
+      "claims": [
+        "Keeps water fresh and filtered for cats"
+      ],
+      "tier": {
+        "dimensions": {
+          "capacity": "4L",
+          "material": "stainless"
+        },
+        "manufacturer": "Petlibro",
+        "price_tier": "premium"
+      },
+      "current_supplier": null,
+      "supplier_quotes": [
+        {
+          "platform": "aliexpress.us",
+          "status": "QUOTED",
+          "listing_id": "AE-4L",
+          "listing_url": "https://example.invalid/aliexpress.us/AE-4L",
+          "supplier_name": "aliexpress.us seller",
+          "variant_key": null,
+          "unit_price_usd": 10.5,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 5,
+          "delivery_max_days": 9,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:aliexpress.us"
+        },
+        {
+          "platform": "cjdropshipping.us",
+          "status": "QUOTED",
+          "listing_id": "CJ-4L",
+          "listing_url": "https://example.invalid/cjdropshipping.us/CJ-4L",
+          "supplier_name": "cjdropshipping.us seller",
+          "variant_key": null,
+          "unit_price_usd": 10.5,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 2,
+          "delivery_max_days": 6,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:cjdropshipping.us"
+        },
+        {
+          "platform": "dsers",
+          "status": "QUOTED",
+          "listing_id": "AE-4L-ds",
+          "listing_url": "https://example.invalid/dsers/AE-4L-ds",
+          "supplier_name": "dsers seller",
+          "variant_key": null,
+          "unit_price_usd": 11.0,
+          "shipping_cost_usd": 0.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 5,
+          "delivery_max_days": 9,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:dsers"
+        }
+      ],
+      "competitors": [
+        {
+          "store": "aquacat.com",
+          "price_usd": 32.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "meowflow.com",
+          "price_usd": 29.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "petsip.co",
+          "price_usd": 34.95,
+          "source": "winninghunter:adlibrary"
+        }
+      ],
+      "market": {
+        "units_sold_30d_sources": [
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290001",
+            "units": 1450
+          },
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290002",
+            "units": 380
+          }
+        ],
+        "monthly": [
+          {
+            "period_start": "2026-07-30",
+            "period_end": "2026-08-29",
+            "units": 3100,
+            "revenue_usd": 86000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-08-29",
+            "period_end": "2026-09-28",
+            "units": 3500,
+            "revenue_usd": 97000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-09-28",
+            "period_end": "2026-10-28",
+            "units": 3900,
+            "revenue_usd": 108000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-10-28",
+            "period_end": "2026-11-27",
+            "units": 4300,
+            "revenue_usd": 121000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          }
+        ]
+      },
+      "rating": {
+        "verified_avg": 4.7,
+        "verified_count": 1840,
+        "source": "aliexpress.us verified purchases",
+        "negative_review_scan": {
+          "sample_size": 60,
+          "top_complaints": [
+            "pump noise after 3 months",
+            "filter cost"
+          ],
+          "fatal_defect_found": false,
+          "fatal_defect_detail": null,
+          "improvement_opportunity": "Choose wireless-pump version that fixes noise complaints"
+        }
+      },
+      "trend_90d": {
+        "primary": {
+          "source": "winninghunter:meta-active-ads",
+          "points": [
+            {
+              "date": "2026-08-29",
+              "value": 40
+            },
+            {
+              "date": "2026-09-28",
+              "value": 52
+            },
+            {
+              "date": "2026-10-28",
+              "value": 61
+            },
+            {
+              "date": "2026-11-13",
+              "value": 66
+            },
+            {
+              "date": "2026-11-20",
+              "value": 70
+            },
+            {
+              "date": "2026-11-27",
+              "value": 72
+            }
+          ]
+        },
+        "corroborating": [
+          {
+            "source": "google-trends",
+            "points": [
+              {
+                "date": "2026-08-29",
+                "value": 70
+              },
+              {
+                "date": "2026-09-28",
+                "value": 74
+              },
+              {
+                "date": "2026-10-28",
+                "value": 78
+              },
+              {
+                "date": "2026-11-27",
+                "value": 80
+              }
+            ]
+          }
+        ]
+      },
+      "problem_solver": {
+        "audience": "cat owners whose cats drink too little water",
+        "problem": "cats avoid stale bowl water and risk urinary issues",
+        "recurrence": "daily",
+        "solution": "circulating filtered water that cats prefer",
+        "statement": "For cat owners whose cats drink too little water, this filtered fountain keeps water moving so cats drink more every day.",
+        "niche_fit": "multi-pet and small-apartment households",
+        "review_gap_upgrade": "silent wireless pump fixes the #1 complaint",
+        "claude_verdict": "PASS",
+        "rationale": "Hydration is a daily, vet-recognised problem; fountains are a proven category with repeat demand."
+      },
+      "visual_hook": {
+        "hook_3s": "Cat ignores a stale bowl, then runs to the fountain and drinks",
+        "demo_format": "before_after",
+        "media_evidence": [
+          "https://example.invalid/ad/123"
+        ],
+        "ad_policy": {
+          "meta": true,
+          "tiktok": true,
+          "google": true,
+          "notes": "no health claims"
+        },
+        "claude_verdict": "PASS",
+        "rationale": "The before/after of a cat refusing a bowl then drinking is instantly readable without sound."
+      },
+      "variants": [
+        {
+          "variant_key": "steel-4l",
+          "options": {
+            "Capacity": "4L"
+          },
+          "supplier_order_count": 3000,
+          "review_count": 400,
+          "sku_velocity_30d": 300,
+          "in_stock": true
+        }
+      ],
+      "listing": {
+        "title": "Stainless Steel 4L Cat Water Fountain",
+        "handle": "stainless-4l-cat-water-fountain",
+        "description_html": "<p>Ultra-quiet wireless pump keeps water flowing so cats drink more.</p>",
+        "product_type": "Cat Water Fountain",
+        "vendor": "Purrfect Home",
+        "tags": [
+          "fountain",
+          "3l"
+        ],
+        "image_urls": [
+          "https://example.invalid/img/fountain.jpg"
+        ],
+        "seo_title": "Silent 3L Wireless Cat Water Fountain",
+        "seo_description": "Quiet filtered water fountain for cats and multi-cat homes."
+      },
+      "seo": {
+        "long_tail_keywords": [
+          "quiet cat water fountain for multiple cats"
+        ],
+        "proposed_title": "Stainless 4L Cat Water Fountain"
+      }
+    },
+    {
+      "product_key": "candidate:led-fountain-fad",
+      "role": "GAP_FILL_CANDIDATE",
+      "title": "LED Light-Up Fountain",
+      "collected_at": "2026-11-27T11:03:45Z",
+      "shopify_product_id": null,
+      "shopify_handle": null,
+      "collection_handles": [
+        "cat-water-fountains"
+      ],
+      "sub_collection_handles": [],
+      "claims": [
+        "Keeps water fresh and filtered for cats"
+      ],
+      "tier": {
+        "dimensions": {
+          "capacity": "3L"
+        },
+        "manufacturer": "Aquapaw",
+        "price_tier": "mid"
+      },
+      "current_supplier": null,
+      "supplier_quotes": [
+        {
+          "platform": "aliexpress.us",
+          "status": "QUOTED",
+          "listing_id": "AE-LED",
+          "listing_url": "https://example.invalid/aliexpress.us/AE-LED",
+          "supplier_name": "aliexpress.us seller",
+          "variant_key": null,
+          "unit_price_usd": 9.0,
+          "shipping_cost_usd": 12.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 11,
+          "delivery_max_days": 15,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:aliexpress.us"
+        },
+        {
+          "platform": "cjdropshipping.us",
+          "status": "NOT_FOUND",
+          "listing_id": "x",
+          "listing_url": "https://example.invalid/cjdropshipping.us/x",
+          "supplier_name": "cjdropshipping.us seller",
+          "variant_key": null,
+          "unit_price_usd": null,
+          "shipping_cost_usd": null,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": null,
+          "delivery_max_days": null,
+          "ship_from": "US",
+          "stock": null,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:cjdropshipping.us"
+        },
+        {
+          "platform": "dsers",
+          "status": "QUOTED",
+          "listing_id": "DS-LED",
+          "listing_url": "https://example.invalid/dsers/DS-LED",
+          "supplier_name": "dsers seller",
+          "variant_key": null,
+          "unit_price_usd": 9.0,
+          "shipping_cost_usd": 11.0,
+          "shipping_method": "US warehouse standard",
+          "delivery_min_days": 14,
+          "delivery_max_days": 18,
+          "ship_from": "US",
+          "stock": 500,
+          "checked_at": "2026-11-27T11:03:45Z",
+          "source": "mcp:dsers"
+        }
+      ],
+      "competitors": [
+        {
+          "store": "aquacat.com",
+          "price_usd": 32.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "meowflow.com",
+          "price_usd": 29.99,
+          "source": "winninghunter:adlibrary"
+        },
+        {
+          "store": "petsip.co",
+          "price_usd": 34.95,
+          "source": "winninghunter:adlibrary"
+        }
+      ],
+      "market": {
+        "units_sold_30d_sources": [
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290001",
+            "units": 1450
+          },
+          {
+            "source": "winninghunter:tiktok-shop",
+            "listing_id": "17290002",
+            "units": 380
+          }
+        ],
+        "monthly": [
+          {
+            "period_start": "2026-07-30",
+            "period_end": "2026-08-29",
+            "units": 3100,
+            "revenue_usd": 86000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-08-29",
+            "period_end": "2026-09-28",
+            "units": 3500,
+            "revenue_usd": 97000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-09-28",
+            "period_end": "2026-10-28",
+            "units": 3900,
+            "revenue_usd": 108000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          },
+          {
+            "period_start": "2026-10-28",
+            "period_end": "2026-11-27",
+            "units": 4300,
+            "revenue_usd": 121000,
+            "sources": [
+              "winninghunter:tiktok-shop"
+            ]
+          }
+        ]
+      },
+      "rating": {
+        "verified_avg": 4.7,
+        "verified_count": 1840,
+        "source": "aliexpress.us verified purchases",
+        "negative_review_scan": {
+          "sample_size": 60,
+          "top_complaints": [
+            "pump noise after 3 months",
+            "filter cost"
+          ],
+          "fatal_defect_found": false,
+          "fatal_defect_detail": null,
+          "improvement_opportunity": "Choose wireless-pump version that fixes noise complaints"
+        }
+      },
+      "trend_90d": {
+        "primary": {
+          "source": "winninghunter:meta-active-ads",
+          "points": [
+            {
+              "date": "2026-08-29",
+              "value": 40
+            },
+            {
+              "date": "2026-09-28",
+              "value": 52
+            },
+            {
+              "date": "2026-10-28",
+              "value": 61
+            },
+            {
+              "date": "2026-11-13",
+              "value": 66
+            },
+            {
+              "date": "2026-11-20",
+              "value": 70
+            },
+            {
+              "date": "2026-11-27",
+              "value": 72
+            }
+          ]
+        },
+        "corroborating": [
+          {
+            "source": "google-trends",
+            "points": [
+              {
+                "date": "2026-08-29",
+                "value": 70
+              },
+              {
+                "date": "2026-09-28",
+                "value": 74
+              },
+              {
+                "date": "2026-10-28",
+                "value": 78
+              },
+              {
+                "date": "2026-11-27",
+                "value": 80
+              }
+            ]
+          }
+        ]
+      },
+      "problem_solver": {
+        "audience": "cat owners whose cats drink too little water",
+        "problem": "cats avoid stale bowl water and risk urinary issues",
+        "recurrence": "daily",
+        "solution": "circulating filtered water that cats prefer",
+        "statement": "For cat owners whose cats drink too little water, this filtered fountain keeps water moving so cats drink more every day.",
+        "niche_fit": "multi-pet and small-apartment households",
+        "review_gap_upgrade": "silent wireless pump fixes the #1 complaint",
+        "claude_verdict": "PASS",
+        "rationale": "Hydration is a daily, vet-recognised problem; fountains are a proven category with repeat demand."
+      },
+      "visual_hook": {
+        "hook_3s": "Cat ignores a stale bowl, then runs to the fountain and drinks",
+        "demo_format": "before_after",
+        "media_evidence": [
+          "https://example.invalid/ad/123"
+        ],
+        "ad_policy": {
+          "meta": true,
+          "tiktok": true,
+          "google": true,
+          "notes": "no health claims"
+        },
+        "claude_verdict": "PASS",
+        "rationale": "The before/after of a cat refusing a bowl then drinking is instantly readable without sound."
+      },
+      "variants": [
+        {
+          "variant_key": "white-3l",
+          "options": {
+            "Color": "White",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 5200,
+          "review_count": 900,
+          "sku_velocity_30d": 700,
+          "in_stock": true,
+          "current_price_usd": null
+        },
+        {
+          "variant_key": "grey-3l",
+          "options": {
+            "Color": "Grey",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 2100,
+          "review_count": 300,
+          "sku_velocity_30d": 260,
+          "in_stock": true,
+          "current_price_usd": null
+        },
+        {
+          "variant_key": "pink-3l",
+          "options": {
+            "Color": "Pink",
+            "Capacity": "3L"
+          },
+          "supplier_order_count": 120,
+          "review_count": 10,
+          "sku_velocity_30d": 8,
+          "in_stock": true,
+          "current_price_usd": null
+        }
+      ],
+      "listing": null,
+      "seo": {
+        "long_tail_keywords": [
+          "quiet cat water fountain for multiple cats"
+        ],
+        "proposed_title": "LED Light-Up Fountain"
+      }
+    }
+  ]
+}

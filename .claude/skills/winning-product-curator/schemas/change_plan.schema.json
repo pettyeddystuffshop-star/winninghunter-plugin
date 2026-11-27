@@ -1,0 +1,437 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://winning-product-curator.local/schemas/change_plan.schema.json",
+  "title": "Winning Product Curator - Change Plan",
+  "description": "Immutable, SHA-256-protected change manifest produced by Phase A. Only items whose approval.decision is APPROVED may be executed by apply_approved_plan.py, and only after --confirm-hash matches integrity.sha256.",
+  "type": "object",
+  "required": ["plan_version", "plan_id", "plan_date", "generated_at", "mode", "status", "store", "rules_snapshot",
+               "inputs", "summary", "scorecards", "collections", "items", "warnings", "integrity", "approval"],
+  "additionalProperties": false,
+  "properties": {
+    "plan_version": {"const": "1.0"},
+    "plan_id": {"type": "string", "pattern": "^wpc-[0-9]{4}-[0-9]{2}-[0-9]{2}(-[0-9]+)?$"},
+    "plan_date": {"type": "string", "format": "date"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "mode": {"const": "plan"},
+    "status": {"$ref": "#/$defs/planStatus"},
+    "store": {
+      "type": "object",
+      "required": ["shop_domain", "timezone"],
+      "additionalProperties": false,
+      "properties": {
+        "shop_domain": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*\\.myshopify\\.com$"},
+        "name": {"type": "string"},
+        "timezone": {"type": "string"},
+        "currency": {"type": "string"}
+      }
+    },
+    "rules_snapshot": {
+      "type": "object",
+      "required": ["rules_version", "criteria", "collections", "suppliers", "variants"],
+      "properties": {
+        "rules_version": {"type": "string"},
+        "criteria": {
+          "type": "object",
+          "required": ["c01_margin_multiple_min", "c03_shipping_cost_max_exclusive_usd", "c04_delivery_max_days",
+                       "c05_units_sold_30d_min", "c06_high_volume_monthly_revenue_min_usd", "c07_rating_min"],
+          "properties": {
+            "c01_margin_multiple_min": {"type": "number", "minimum": 3.0},
+            "c03_shipping_cost_max_exclusive_usd": {"type": "number", "maximum": 10.0},
+            "c04_delivery_max_days": {"type": "integer", "maximum": 10},
+            "c05_units_sold_30d_min": {"type": "integer", "minimum": 1000},
+            "c06_high_volume_monthly_revenue_min_usd": {"type": "number", "minimum": 100000},
+            "c07_rating_min": {"type": "number", "minimum": 4.5}
+          }
+        },
+        "collections": {
+          "type": "object",
+          "required": ["min_sub_collections", "min_products"],
+          "properties": {
+            "min_sub_collections": {"type": "integer", "minimum": 4},
+            "min_products": {"type": "integer", "minimum": 20}
+          }
+        },
+        "suppliers": {
+          "type": "object",
+          "required": ["priority", "last_resort", "price_check_platforms"],
+          "properties": {
+            "priority": {"const": ["aliexpress.us", "cjdropshipping.us", "dsers"]},
+            "price_check_platforms": {"const": ["aliexpress.us", "cjdropshipping.us", "dsers"]},
+            "last_resort": {"const": "autods"}
+          }
+        },
+        "variants": {"type": "object"}
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "required": ["catalog_sha256", "scorecards_sha256", "proposals_sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "catalog_sha256": {"$ref": "#/$defs/sha256"},
+        "scorecards_sha256": {"$ref": "#/$defs/sha256"},
+        "proposals_sha256": {"$ref": "#/$defs/sha256"},
+        "catalog_generated_at": {"type": "string"},
+        "scorecards_generated_at": {"type": "string"}
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["total_active_audited", "passed_10_of_10", "needs_optimization", "slated_for_replacement",
+                   "replacements_found", "failing_without_replacement", "net_new_additions", "sub_collections_proposed",
+                   "collections_total", "collections_meeting_rules_after_plan"],
+      "additionalProperties": false,
+      "properties": {
+        "total_active_audited": {"type": "integer", "minimum": 0},
+        "passed_10_of_10": {"type": "integer", "minimum": 0},
+        "needs_optimization": {"type": "integer", "minimum": 0},
+        "slated_for_replacement": {"type": "integer", "minimum": 0},
+        "replacements_found": {"type": "integer", "minimum": 0},
+        "failing_without_replacement": {"type": "integer", "minimum": 0},
+        "net_new_additions": {"type": "integer", "minimum": 0},
+        "sub_collections_proposed": {"type": "integer", "minimum": 0},
+        "variant_prunes": {"type": "integer", "minimum": 0},
+        "supplier_reroutes": {"type": "integer", "minimum": 0},
+        "reprices": {"type": "integer", "minimum": 0},
+        "collections_total": {"type": "integer", "minimum": 0},
+        "collections_meeting_rules_after_plan": {"type": "integer", "minimum": 0}
+      }
+    },
+    "scorecards": {"type": "array", "items": {"$ref": "#/$defs/scorecard"}},
+    "collections": {"type": "array", "items": {"$ref": "#/$defs/collectionAudit"}},
+    "items": {"type": "array", "items": {"$ref": "#/$defs/item"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "integrity": {
+      "type": "object",
+      "required": ["algorithm", "hash_scope", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {"const": "SHA-256"},
+        "hash_scope": {"const": "canonical JSON (sorted keys, compact separators, UTF-8) of the plan with /integrity, /status, /approval and /items/*/approval removed"},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "approval": {
+      "type": "object",
+      "required": ["status", "approved_by", "approved_at", "confirm_hash_verified"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {"$ref": "#/$defs/planStatus"},
+        "approved_by": {"type": ["string", "null"]},
+        "approved_at": {"type": ["string", "null"], "format": "date-time"},
+        "confirm_hash_verified": {"type": "boolean"},
+        "approved_item_ids": {"type": "array", "items": {"$ref": "#/$defs/itemId"}},
+        "rejected_item_ids": {"type": "array", "items": {"$ref": "#/$defs/itemId"}}
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "itemId": {"type": "string", "pattern": "^ITEM-[0-9]{3,4}$"},
+    "planStatus": {"enum": ["PENDING_APPROVAL", "APPROVED", "PARTIALLY_APPROVED", "REJECTED", "APPLYING", "APPLIED", "PARTIALLY_APPLIED", "EXPIRED"]},
+    "passFail": {"enum": ["PASS", "FAIL"]},
+    "platform": {"enum": ["aliexpress.us", "cjdropshipping.us", "dsers", "autods"]},
+    "criterionResult": {
+      "type": "object",
+      "required": ["criterion", "name", "status", "summary", "evidence"],
+      "additionalProperties": false,
+      "properties": {
+        "criterion": {"type": "integer", "minimum": 1, "maximum": 10},
+        "name": {"type": "string"},
+        "status": {"$ref": "#/$defs/passFail"},
+        "summary": {"type": ["string", "null"]},
+        "evidence": {"type": "object"}
+      }
+    },
+    "criteria": {
+      "type": "object",
+      "required": ["c01_margin_3x", "c02_lowest_cross_platform_cost", "c03_shipping_cost_under_10", "c04_delivery_within_10_days",
+                   "c05_units_30d_1000", "c06_revenue_trajectory_or_100k", "c07_verified_rating_4_5", "c08_trend_90d_healthy",
+                   "c09_everyday_problem_solver", "c10_visual_pain_point_demo"],
+      "additionalProperties": false,
+      "properties": {
+        "c01_margin_3x": {"$ref": "#/$defs/criterionResult"},
+        "c02_lowest_cross_platform_cost": {"$ref": "#/$defs/criterionResult"},
+        "c03_shipping_cost_under_10": {"$ref": "#/$defs/criterionResult"},
+        "c04_delivery_within_10_days": {"$ref": "#/$defs/criterionResult"},
+        "c05_units_30d_1000": {"$ref": "#/$defs/criterionResult"},
+        "c06_revenue_trajectory_or_100k": {"$ref": "#/$defs/criterionResult"},
+        "c07_verified_rating_4_5": {"$ref": "#/$defs/criterionResult"},
+        "c08_trend_90d_healthy": {"$ref": "#/$defs/criterionResult"},
+        "c09_everyday_problem_solver": {"$ref": "#/$defs/criterionResult"},
+        "c10_visual_pain_point_demo": {"$ref": "#/$defs/criterionResult"}
+      }
+    },
+    "quoteSummary": {
+      "type": "object",
+      "properties": {
+        "status": {"enum": ["QUOTED", "NOT_FOUND", "OUT_OF_STOCK", "ERROR", "NOT_CHECKED"]},
+        "platform": {"$ref": "#/$defs/platform"},
+        "landed_cost_usd": {"type": ["number", "null"]},
+        "unit_price_usd": {"type": ["number", "null"]},
+        "shipping_cost_usd": {"type": ["number", "null"]},
+        "delivery_max_days": {"type": ["integer", "null"]},
+        "cheapest_landed_any_usd": {"type": ["number", "null"]}
+      }
+    },
+    "priceComparison": {
+      "type": "object",
+      "required": ["aliexpress.us", "cjdropshipping.us", "dsers"],
+      "properties": {
+        "aliexpress.us": {"$ref": "#/$defs/quoteSummary"},
+        "cjdropshipping.us": {"$ref": "#/$defs/quoteSummary"},
+        "dsers": {"$ref": "#/$defs/quoteSummary"},
+        "autods": {"$ref": "#/$defs/quoteSummary"}
+      }
+    },
+    "selectedSupplier": {
+      "type": "object",
+      "required": ["platform", "supplier_tier", "landed_cost_usd", "unit_price_usd", "shipping_cost_usd", "delivery_max_days", "justification"],
+      "properties": {
+        "platform": {"$ref": "#/$defs/platform"},
+        "supplier_tier": {"enum": ["1ST_CHOICE", "2ND_CHOICE", "LAST_RESORT"]},
+        "listing_id": {"type": ["string", "null"]},
+        "listing_url": {"type": ["string", "null"]},
+        "unit_price_usd": {"type": "number", "minimum": 0},
+        "shipping_cost_usd": {"type": "number", "minimum": 0, "exclusiveMaximum": 10},
+        "landed_cost_usd": {"type": "number", "minimum": 0},
+        "shipping_method": {"type": ["string", "null"]},
+        "delivery_min_days": {"type": ["integer", "null"]},
+        "delivery_max_days": {"type": "integer", "maximum": 10},
+        "used_last_resort": {"type": "boolean"},
+        "justification": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+      }
+    },
+    "scorecard": {
+      "type": "object",
+      "required": ["product_key", "role", "title", "status", "criteria_passed", "failed_criteria", "criteria", "supplier", "pricing", "variants"],
+      "properties": {
+        "product_key": {"type": "string"},
+        "role": {"enum": ["ACTIVE", "REPLACEMENT_CANDIDATE", "GAP_FILL_CANDIDATE"]},
+        "title": {"type": ["string", "null"]},
+        "status": {"enum": ["PASS_10_OF_10", "NEEDS_OPTIMIZATION", "FAIL_NEEDS_REPLACEMENT", "QUALIFIED", "REJECTED"]},
+        "criteria_passed": {"type": "integer", "minimum": 0, "maximum": 10},
+        "failed_criteria": {"type": "array", "items": {"type": "integer", "minimum": 1, "maximum": 10}, "uniqueItems": true},
+        "criteria": {"$ref": "#/$defs/criteria"},
+        "supplier": {
+          "type": "object",
+          "required": ["selected_platform", "supplier_tier", "used_last_resort", "comparison_complete", "justification", "price_comparison"],
+          "properties": {
+            "selected_platform": {"oneOf": [{"$ref": "#/$defs/platform"}, {"type": "null"}]},
+            "supplier_tier": {"enum": ["1ST_CHOICE", "2ND_CHOICE", "LAST_RESORT", null]},
+            "used_last_resort": {"type": "boolean"},
+            "comparison_complete": {"type": "boolean"},
+            "justification": {"type": "array", "items": {"type": "string"}},
+            "price_comparison": {"$ref": "#/$defs/priceComparison"}
+          }
+        },
+        "pricing": {"type": "object"},
+        "variants": {
+          "type": "object",
+          "required": ["kept", "pruned"],
+          "properties": {"kept": {"type": "array"}, "pruned": {"type": "array"}}
+        }
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"status": {"enum": ["PASS_10_OF_10", "NEEDS_OPTIMIZATION", "QUALIFIED"]}}},
+          "then": {"properties": {"criteria_passed": {"const": 10}, "failed_criteria": {"maxItems": 0}}}
+        },
+        {
+          "if": {"properties": {"status": {"enum": ["FAIL_NEEDS_REPLACEMENT", "REJECTED"]}}},
+          "then": {"properties": {"criteria_passed": {"maximum": 9}, "failed_criteria": {"minItems": 1}}}
+        }
+      ]
+    },
+    "subCollectionAudit": {
+      "type": "object",
+      "required": ["handle", "title", "exists", "qualifying_count_current", "qualifying_count_after_plan", "target_min_products", "deficit_after_plan"],
+      "additionalProperties": false,
+      "properties": {
+        "handle": {"type": "string"},
+        "title": {"type": "string"},
+        "collection_id": {"type": ["string", "null"]},
+        "exists": {"type": "boolean"},
+        "proposed_item_id": {"oneOf": [{"$ref": "#/$defs/itemId"}, {"type": "null"}]},
+        "qualifying_count_current": {"type": "integer", "minimum": 0},
+        "qualifying_count_after_plan": {"type": "integer", "minimum": 0},
+        "target_min_products": {"type": "integer", "minimum": 20},
+        "deficit_after_plan": {"type": "integer", "minimum": 0},
+        "avg_margin_multiple": {"type": ["number", "null"]}
+      }
+    },
+    "collectionAudit": {
+      "type": "object",
+      "required": ["handle", "title", "collection_id", "sub_collections", "sub_collection_count_current", "sub_collection_count_after_plan",
+                   "min_sub_collections", "qualifying_count_current", "qualifying_count_after_plan", "target_min_products",
+                   "deficit_current", "deficit_after_plan", "tier_matrix", "tier_gaps", "meets_rules_after_plan"],
+      "additionalProperties": false,
+      "properties": {
+        "handle": {"type": "string"},
+        "title": {"type": "string"},
+        "collection_id": {"type": "string"},
+        "sub_collections": {"type": "array", "items": {"$ref": "#/$defs/subCollectionAudit"}},
+        "sub_collection_count_current": {"type": "integer", "minimum": 0},
+        "sub_collection_count_after_plan": {"type": "integer", "minimum": 0},
+        "min_sub_collections": {"type": "integer", "minimum": 4},
+        "qualifying_count_current": {"type": "integer", "minimum": 0},
+        "qualifying_count_after_plan": {"type": "integer", "minimum": 0},
+        "target_min_products": {"type": "integer", "minimum": 20},
+        "deficit_current": {"type": "integer", "minimum": 0},
+        "deficit_after_plan": {"type": "integer", "minimum": 0},
+        "tier_matrix": {
+          "type": "object",
+          "required": ["price_tiers", "dimensions", "manufacturers"],
+          "properties": {
+            "price_tiers": {"type": "object", "additionalProperties": {"type": "integer"}},
+            "dimensions": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+            "manufacturers": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "tier_gaps": {"type": "array", "items": {"type": "string"}},
+        "meets_rules_after_plan": {"type": "boolean"}
+      }
+    },
+    "approvalDecision": {
+      "type": "object",
+      "required": ["decision", "decided_by", "decided_at"],
+      "additionalProperties": false,
+      "properties": {
+        "decision": {"enum": ["PENDING", "APPROVED", "REJECTED"]},
+        "decided_by": {"type": ["string", "null"]},
+        "decided_at": {"type": ["string", "null"], "format": "date-time"},
+        "note": {"type": ["string", "null"]}
+      }
+    },
+    "proposedVariant": {
+      "type": "object",
+      "required": ["variant_key", "options", "price_usd", "landed_cost_usd", "margin_multiple"],
+      "properties": {
+        "variant_key": {"type": "string"},
+        "options": {"type": "object", "additionalProperties": {"type": "string"}},
+        "price_usd": {"type": "number", "exclusiveMinimum": 0},
+        "landed_cost_usd": {"type": "number", "exclusiveMinimum": 0},
+        "margin_multiple": {"type": "number", "minimum": 3.0},
+        "sku": {"type": ["string", "null"]},
+        "supplier_variant_id": {"type": ["string", "null"]},
+        "popularity_share": {"type": ["number", "null"]}
+      }
+    },
+    "proposedProduct": {
+      "type": "object",
+      "required": ["product_key", "title", "handle", "criteria_passed", "criteria_status", "supplier", "price_comparison",
+                   "variants", "pruned_variants", "evidence_summary", "tier"],
+      "properties": {
+        "product_key": {"type": "string", "pattern": "^candidate:"},
+        "title": {"type": "string", "minLength": 3},
+        "handle": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+        "description_html": {"type": "string"},
+        "product_type": {"type": "string"},
+        "vendor": {"type": "string"},
+        "tags": {"type": "array", "items": {"type": "string"}},
+        "image_urls": {"type": "array", "items": {"type": "string"}},
+        "seo_title": {"type": ["string", "null"]},
+        "seo_description": {"type": ["string", "null"]},
+        "criteria_passed": {"const": 10},
+        "criteria_status": {
+          "type": "object",
+          "minProperties": 10, "maxProperties": 10,
+          "additionalProperties": {"const": "PASS"}
+        },
+        "supplier": {"$ref": "#/$defs/selectedSupplier"},
+        "price_comparison": {"$ref": "#/$defs/priceComparison"},
+        "variants": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/proposedVariant"}},
+        "pruned_variants": {"type": "array"},
+        "tier": {"type": "object"},
+        "evidence_summary": {
+          "type": "object",
+          "required": ["units_30d", "c06_path", "trend_90d", "verified_rating", "verified_reviews", "pain_point", "visual_hook"],
+          "properties": {
+            "units_30d": {"type": "integer", "minimum": 1000},
+            "c06_path": {"enum": ["RISING_TRAJECTORY", "HIGH_VOLUME_STABILITY"]},
+            "latest_month_revenue_usd": {"type": ["number", "null"]},
+            "trend_90d": {"enum": ["RISING", "PLATEAU_HIGH"]},
+            "verified_rating": {"type": "number", "minimum": 4.5},
+            "verified_reviews": {"type": "integer"},
+            "pain_point": {"type": "string"},
+            "visual_hook": {"type": "string"}
+          }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "required": ["item_id", "type", "title", "executable", "depends_on", "rationale", "payload", "approval"],
+      "additionalProperties": false,
+      "properties": {
+        "item_id": {"$ref": "#/$defs/itemId"},
+        "type": {"enum": ["CREATE_SUB_COLLECTION", "REPLACE_PRODUCT", "ADD_PRODUCT", "PRUNE_VARIANTS", "REROUTE_SUPPLIER", "REPRICE_PRODUCT", "REVIEW_FAILING_NO_REPLACEMENT"]},
+        "title": {"type": "string"},
+        "executable": {"type": "boolean"},
+        "depends_on": {"type": "array", "items": {"$ref": "#/$defs/itemId"}},
+        "rationale": {"type": "string"},
+        "payload": {"type": "object"},
+        "approval": {"$ref": "#/$defs/approvalDecision"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"type": {"const": "REPLACE_PRODUCT"}}},
+          "then": {"properties": {"executable": {"const": true}, "payload": {
+            "type": "object",
+            "required": ["failing_product_key", "failing_shopify_product_id", "failing_title", "failing_handle", "failed_criteria", "collection_handle", "sub_collection_handles", "replacement"],
+            "properties": {
+              "failing_shopify_product_id": {"type": "string", "pattern": "^gid://shopify/Product/[0-9]+$"},
+              "failed_criteria": {"type": "array", "minItems": 1, "items": {"type": "integer", "minimum": 1, "maximum": 10}},
+              "replacement": {"$ref": "#/$defs/proposedProduct"},
+              "archive_mode": {"const": "ARCHIVE_WITH_REDIRECT"}
+            }}}}
+        },
+        {
+          "if": {"properties": {"type": {"const": "ADD_PRODUCT"}}},
+          "then": {"properties": {"executable": {"const": true}, "payload": {
+            "type": "object",
+            "required": ["collection_handle", "sub_collection_handles", "tier_slot", "product"],
+            "properties": {"product": {"$ref": "#/$defs/proposedProduct"}}}}}
+        },
+        {
+          "if": {"properties": {"type": {"const": "CREATE_SUB_COLLECTION"}}},
+          "then": {"properties": {"executable": {"const": true}, "payload": {
+            "type": "object",
+            "required": ["parent_collection_handle", "parent_collection_id", "handle", "title", "seo_title", "meta_description", "description_html", "long_tail_keywords"],
+            "properties": {
+              "handle": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+              "seo_title": {"type": "string", "maxLength": 70},
+              "meta_description": {"type": "string", "maxLength": 320},
+              "long_tail_keywords": {"type": "array", "minItems": 1}
+            }}}}
+        },
+        {
+          "if": {"properties": {"type": {"const": "PRUNE_VARIANTS"}}},
+          "then": {"properties": {"executable": {"const": true}, "payload": {
+            "type": "object",
+            "required": ["shopify_product_id", "remove_variant_ids", "keep_variant_ids", "reasons"],
+            "properties": {
+              "remove_variant_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^gid://shopify/ProductVariant/[0-9]+$"}},
+              "keep_variant_ids": {"type": "array", "minItems": 1}
+            }}}}
+        },
+        {
+          "if": {"properties": {"type": {"const": "REROUTE_SUPPLIER"}}},
+          "then": {"properties": {"payload": {"type": "object", "required": ["shopify_product_id", "from", "to", "price_comparison"],
+            "properties": {"to": {"$ref": "#/$defs/selectedSupplier"}, "price_comparison": {"$ref": "#/$defs/priceComparison"}}}}}
+        },
+        {
+          "if": {"properties": {"type": {"const": "REPRICE_PRODUCT"}}},
+          "then": {"properties": {"executable": {"const": true}, "payload": {"type": "object", "required": ["shopify_product_id", "variants"],
+            "properties": {"variants": {"type": "array", "minItems": 1, "items": {"type": "object",
+              "required": ["shopify_variant_id", "from_price_usd", "to_price_usd", "landed_cost_usd"],
+              "properties": {"to_price_usd": {"type": "number", "exclusiveMinimum": 0}}}}}}}}
+        },
+        {
+          "if": {"properties": {"type": {"const": "REVIEW_FAILING_NO_REPLACEMENT"}}},
+          "then": {"properties": {"executable": {"const": false}}}
+        }
+      ]
+    }
+  }
+}

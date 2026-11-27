@@ -1,0 +1,84 @@
+{
+  "rules_version": "1.0.0",
+  "criteria": {
+    "c01_margin_multiple_min": 3.0,
+    "c01_max_premium_over_competitor_median": 0.10,
+    "c01_min_competitor_benchmarks": 2,
+    "c03_shipping_cost_max_exclusive_usd": 10.00,
+    "c03_free_shipping_preference_window_usd": 0.50,
+    "c04_delivery_max_days": 10,
+    "c05_units_sold_30d_min": 1000,
+    "c06_rising_min_consecutive_months": 3,
+    "c06_high_volume_monthly_revenue_min_usd": 100000,
+    "c06_high_volume_min_months": 3,
+    "c06_high_volume_stability_min_ratio": 0.70,
+    "c07_rating_min": 4.5,
+    "c07_min_verified_reviews": 50,
+    "c07_min_negative_review_sample": 20,
+    "c08_min_series_points": 4,
+    "c08_min_span_days": 60,
+    "c08_window_days": 90,
+    "c08_rising_min_relative_change": 0.10,
+    "c08_plateau_min_ratio_of_peak": 0.80,
+    "c08_plateau_max_relative_drop": 0.10,
+    "c09_min_rationale_chars": 40,
+    "c10_min_rationale_chars": 40
+  },
+  "excluded_product_keywords": [
+    "supplement", "vitamin", "capsule", "gummies", "weight loss", "fat burner",
+    "detox tea", "ingestible", "cbd", "nicotine", "vape", "e-cigarette",
+    "firearm", "gun", "ammo", "knife set for self defense", "taser", "stun gun",
+    "pepper spray", "prescription", "contact lens", "subscription"
+  ],
+  "ad_policy_risk_keywords": [
+    "cure", "cures", "heal", "heals", "miracle", "guaranteed results", "fda approved",
+    "lose weight", "anti-aging cure", "before you die", "covid", "cancer",
+    "diabetes", "erectile", "enlargement", "get rich", "100% effective"
+  ],
+  "vague_audience_terms": [
+    "everyone", "anyone", "all people", "everybody", "people", "users", "customers", "general public"
+  ],
+  "allowed_recurrence": ["daily", "several_times_per_week", "weekly", "several_times_per_month", "monthly"],
+  "allowed_demo_formats": ["before_after", "problem_solution_demo", "side_by_side_comparison", "transformation", "in_use_close_up"],
+  "variants": {
+    "weights": {"order_share": 0.5, "review_share": 0.2, "sku_velocity_share": 0.3},
+    "cumulative_share_target": 0.80,
+    "min_individual_share": 0.05,
+    "max_variants": 6
+  },
+  "suppliers": {
+    "price_check_platforms": ["aliexpress.us", "cjdropshipping.us", "dsers"],
+    "priority": ["aliexpress.us", "cjdropshipping.us", "dsers"],
+    "last_resort": "autods",
+    "tie_tolerance_usd": 0.00,
+    "tier_labels": {
+      "aliexpress.us": "1ST_CHOICE",
+      "dsers": "1ST_CHOICE",
+      "cjdropshipping.us": "2ND_CHOICE",
+      "autods": "LAST_RESORT"
+    }
+  },
+  "collections": {
+    "min_sub_collections": 4,
+    "min_products": 20,
+    "price_tier_budget_max_ratio": 0.80,
+    "price_tier_premium_min_ratio": 1.25,
+    "required_price_tiers": ["budget", "mid", "premium"]
+  },
+  "pricing": {
+    "rounding": "charm_99",
+    "compare_at_multiplier": null
+  },
+  "plan": {
+    "max_age_days_for_apply": 14,
+    "evidence_max_age_days": 7,
+    "new_product_initial_status": "DRAFT"
+  },
+  "rate_limits": {
+    "winninghunter_rest_per_minute": 55,
+    "winninghunter_mcp_per_minute": 280,
+    "cj_per_second": 1,
+    "aliexpress_per_second": 2,
+    "shopify_min_available_cost": 200
+  }
+}
