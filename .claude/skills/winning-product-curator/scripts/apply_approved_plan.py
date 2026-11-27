@@ -48,6 +48,7 @@ from common import (  # noqa: E402
     utc_now_iso, validate_against_schema, write_json,
 )
 from generate_change_plan import plan_hash  # noqa: E402
+from shopify_readonly_audit import _normalize_sources  # noqa: E402
 
 log = get_logger("apply")
 
@@ -171,8 +172,19 @@ class ShopifyWriter:
         return self._publication or None
 
     def collection_info(self, cid: str) -> dict[str, Any]:
-        return self.read.execute("query($id: ID!) { collection(id: $id) { id handle ruleSet { appliedDisjunctively rules { column relation condition } } } }",
-                                 {"id": cid})["collection"]
+        info = self.read.execute("""query($id: ID!) { collection(id: $id) { id handle
+            sources {
+              __typename
+              ... on CollectionConditionsSource {
+                inclusion { matchType conditions {
+                  __typename
+                  ... on CollectionSourceInclusionConditionProductTag { relation values }
+                } }
+              }
+              ... on CollectionSubCollectionsSource { collections { id handle } }
+            } } }""", {"id": cid})["collection"]
+        info["ruleSet"], _ = _normalize_sources(info.pop("sources", None))  # see shopify_readonly_audit._normalize_sources
+        return info
 
     def publish(self, gid: str) -> None:
         pub = self.online_store_publication()
@@ -226,15 +238,22 @@ def add_menu_child(sw: ShopifyWriter, parent_id: str, child_id: str, title: str)
 
 
 def create_sub_collection(sw, item, journal) -> None:
+    # Shopify's flexible-collections model (API 2026-07+) removed CollectionInput.products and the old
+    # `input: CollectionInput` argument from collectionCreate; manual products are now a conditions
+    # source with explicit `selections`. See docs/apps/build/product-merchandising/.../migrate-to-flexible-collections.
     p = item["payload"]
     ns, _, key = os.environ.get("SUBCOLLECTION_PARENT_METAFIELD", "custom.parent_collection").partition(".")
-    data = sw.mutate("collectionCreate", """mutation($input: CollectionInput!) {
-        collectionCreate(input: $input) { collection { id handle } userErrors { field message } } }""",
-                     {"input": {"title": p["title"], "handle": p["handle"], "descriptionHtml": p["description_html"],
-                                "seo": {"title": p["seo_title"], "description": p["meta_description"]},
-                                "metafields": [{"namespace": ns, "key": key, "type": "collection_reference",
-                                                "value": p["parent_collection_id"]}],
-                                "products": p.get("initial_product_ids") or []}})
+    initial = p.get("initial_product_ids") or []
+    collection_input = {"title": p["title"], "handle": p["handle"], "descriptionHtml": p["description_html"],
+                        "seo": {"title": p["seo_title"], "description": p["meta_description"]},
+                        "metafields": [{"namespace": ns, "key": key, "type": "collection_reference",
+                                        "value": p["parent_collection_id"]}]}
+    if initial:
+        collection_input["sources"] = [{"source": {"targetType": "PRODUCTS", "title": p["title"],
+                                                    "inclusion": {"selections": [{"productId": pid} for pid in initial]}}}]
+    data = sw.mutate("collectionCreate", """mutation($input: CollectionCreateInput!) {
+        collectionCreate(collection: $input) { collection { id handle } userErrors { field message } } }""",
+                     {"input": collection_input})
     cid = (data.get("collection") or {}).get("id", f"dry-run:{p['handle']}")
     if not sw.dry_run:
         sw.publish(cid)

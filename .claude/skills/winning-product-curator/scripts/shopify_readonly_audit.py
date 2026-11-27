@@ -62,7 +62,16 @@ query Collections($cursor: String) {
       id handle title updatedAt sortOrder
       productsCount { count }
       seo { title description }
-      ruleSet { appliedDisjunctively rules { column relation condition } }
+      sources {
+        __typename
+        ... on CollectionConditionsSource {
+          inclusion { matchType conditions {
+            __typename
+            ... on CollectionSourceInclusionConditionProductTag { relation values }
+          } }
+        }
+        ... on CollectionSubCollectionsSource { collections { id handle } }
+      }
       metafields(first: 20) { edges { node { namespace key type value } } }
     } }
   }
@@ -139,12 +148,36 @@ def fetch_products(gql, page_size: int):
     return products
 
 
+def _normalize_sources(sources: list[dict]) -> tuple[dict | None, list[str]]:
+    """Shopify's `Collection.ruleSet` is deprecated in favour of `Collection.sources`
+    (flexible collections, API 2026-07+). Reduce `sources` back to the old
+    `{appliedDisjunctively, rules: [{column, relation, condition}]}` shape so the rest
+    of this script and apply_approved_plan.py's tag-rule matching need no other change,
+    and separately return native sub-collection handles (`CollectionSubCollectionsSource`),
+    which is a stronger signal than the tag/metafield/menu heuristics below.
+    """
+    rule_set, native_subs = None, []
+    for s in sources or []:
+        if s.get("__typename") == "CollectionSubCollectionsSource":
+            native_subs.extend(child["handle"] for child in s.get("collections") or [])
+        elif s.get("__typename") == "CollectionConditionsSource":
+            inclusion = s.get("inclusion") or {}
+            rules = [{"column": "TAG", "relation": "EQUALS", "condition": v}
+                     for cond in inclusion.get("conditions") or []
+                     if cond.get("__typename") == "CollectionSourceInclusionConditionProductTag"
+                     for v in cond.get("values") or []]
+            if rules:
+                rule_set = {"appliedDisjunctively": inclusion.get("matchType") == "ANY", "rules": rules}
+    return rule_set, native_subs
+
+
 def fetch_collections(gql):
     cols = gql.paginate(COLLECTIONS_Q, ["collections"])
     for c in cols:
         c["metafields"] = flatten_edges(c.pop("metafields"))
         c["products_count"] = (c.pop("productsCount") or {}).get("count")
-        c["is_smart"] = bool(c.get("ruleSet"))
+        c["ruleSet"], c["native_sub_collection_handles"] = _normalize_sources(c.pop("sources", None))
+        c["is_smart"] = bool(c["ruleSet"])
         members = gql.paginate(COLLECTION_PRODUCTS_Q, ["collection", "products"], {"id": c["id"]})
         c["product_ids"] = [m["id"] for m in members]
         c["active_product_ids"] = [m["id"] for m in members if m["status"] == "ACTIVE"]
@@ -201,10 +234,13 @@ def fetch_sales(gql, days: int, warnings):
 
 
 def derive_hierarchy(collections, menus, warnings):
-    """Map primary collections to sub-collections using three signals:
-    1. collection metafield (SUBCOLLECTION_PARENT_METAFIELD, default custom.parent_collection)
-    2. nested COLLECTION items in navigation menus
-    3. smart-collection tag rules of the form `parent:<parent-handle>`
+    """Map primary collections to sub-collections using four signals, most authoritative first:
+    1. Shopify's native sub-collections (Collection.sources -> CollectionSubCollectionsSource,
+       flexible collections, API 2026-07+) - set directly in Shopify admin or by collectionCreate's
+       `collection.sources` input. Preferred when present.
+    2. collection metafield (SUBCOLLECTION_PARENT_METAFIELD, default custom.parent_collection)
+    3. nested COLLECTION items in navigation menus
+    4. smart-collection tag rules of the form `parent:<parent-handle>`
     """
     by_id = {c["id"]: c for c in collections}
     by_handle = {c["handle"]: c for c in collections}
@@ -214,6 +250,9 @@ def derive_hierarchy(collections, menus, warnings):
     top_level_menu: set[str] = set()
 
     for c in collections:
+        for child_handle in c.get("native_sub_collection_handles") or []:
+            if child_handle in by_handle:
+                children[c["handle"]][child_handle].add("native")
         for mf in c["metafields"]:
             if mf["namespace"] == ns and mf["key"] == key and mf["value"]:
                 parent = by_id.get(mf["value"]) or by_handle.get(mf["value"])

@@ -345,7 +345,7 @@ class ShopifyGraphQL:
 def shopify_client_from_env(*, read_only: bool = True) -> ShopifyGraphQL:
     load_env()
     domain = require_env("SHOPIFY_SHOP_DOMAIN")["SHOPIFY_SHOP_DOMAIN"]
-    version = os.environ.get("SHOPIFY_API_VERSION", "2025-07")
+    version = os.environ.get("SHOPIFY_API_VERSION", "2026-10")
     if read_only:
         token = require_env("SHOPIFY_ADMIN_READ_TOKEN")["SHOPIFY_ADMIN_READ_TOKEN"]
     else:
